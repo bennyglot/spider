@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { initI18Next } from './i18n';
+import {App} from './pages/app/app';
 import * as serviceWorker from './serviceWorker';
+import * as loglevel from 'loglevel';
+
+/** initialize i18n */
+initI18Next()
+  .catch((error) => {
+    loglevel.error('Error in loading i18n', error);
+  });
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <App />
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 
