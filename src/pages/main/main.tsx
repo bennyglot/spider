@@ -1,9 +1,12 @@
 import React from 'react';
+import { observer } from 'mobx-react';
+import { useStores } from '../../hooks/use-stores';
 
-const main = ({ handleDrawerClose }) => {
-    return (<div onClick={handleDrawerClose}><h1>main panel</h1></div>);
-}
+const Main = observer(() => {
+    const { drawerStore } = useStores()                                                     ;
+    const { handleDrawerClose } = drawerStore;
 
-const Main = main;
+    return (<div onClick={() => handleDrawerClose()}><h1>main panel</h1></div>);
+});
 
 export default Main;

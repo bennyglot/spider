@@ -13,5 +13,5 @@ export class appStore implements appProps {
     }
 }
 
-export const AppStore = new appStore();
+export const AppStore = appStore;
     

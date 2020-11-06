@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react';
 import * as React from 'react';
 import { HashRouter, Switch } from 'react-router-dom';
 import Home from '../home/home';
-import { stores } from '../../stores/index';
+import { storesContext } from '../../stores/index';
 import { initI18Next } from '../../i18n';
 import * as loglevel from 'loglevel';
 import { muiTheme } from './mui-theme';
@@ -19,11 +19,11 @@ initI18Next()
  * Basically it does all base configuration before rendering actual app
  */
 export const App: React.FunctionComponent = (): JSX.Element => (
-  <Provider {...stores}>
+  <Provider {...storesContext}>
     <MuiThemeProvider theme={muiTheme}>
         <HashRouter>
           <Switch>
-            <Home store={stores}/>
+            <Home />
           </Switch>
         </HashRouter>
     </MuiThemeProvider>

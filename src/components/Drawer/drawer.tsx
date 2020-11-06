@@ -1,4 +1,5 @@
 import React from 'react';
+import {observer} from 'mobx-react';
 import clsx from 'clsx';
 import { createStyles, makeStyles, useTheme, Theme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -12,6 +13,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import {useStores} from '../../hooks/use-stores';
 
 const drawerWidth = 240;
 
@@ -79,9 +81,11 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function MiniDrawer({open, handleDrawerClose}) {
+export const MiniDrawer = observer(() => {
     const classes = useStyles();
     const theme = useTheme();
+    const {drawerStore} = useStores();
+    const {isOpen: open, handleDrawerOpen} = drawerStore;
   
     return (
       <div className={classes.root}>
@@ -99,7 +103,7 @@ export default function MiniDrawer({open, handleDrawerClose}) {
           }}
         >
           <div className={classes.toolbar}>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton onClick={() => {handleDrawerOpen()}}>
               {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </IconButton>
           </div>
@@ -124,4 +128,4 @@ export default function MiniDrawer({open, handleDrawerClose}) {
         </Drawer>
       </div>
     );
-  }
+  })

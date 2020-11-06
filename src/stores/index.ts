@@ -1,7 +1,10 @@
-import {AppStore} from './app';
-import {DrawerStore} from './drawer';
+import { createContext } from "react";
+import { AppStore } from './app';
+import { DrawerStore } from './drawer';
 
-export const stores = {
-    AppStore,
-    DrawerStore
-};
+export const storesContext = createContext({
+    appStore: new AppStore(),
+    drawerStore: new DrawerStore()
+})
+
+

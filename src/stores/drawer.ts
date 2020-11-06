@@ -6,18 +6,25 @@ export interface drawProps {
     handleDrawerClose: () => void
 }
 
- class drawerStore implements drawProps {
-     isOpen: boolean
+ class drawerStore implements drawProps {   
+     isOpen = false;
 
      constructor() {
-         this.isOpen = false;
          makeAutoObservable(this);
      }
 
-     handleDrawerOpen() { this.isOpen = true };
+     handleDrawerOpen = () => { 
+         console.log('trigger handleDrawerOpen');
+         this.isOpen = true ;
+         console.log(this.isOpen);
+        };
 
-     handleDrawerClose() { this.isOpen = false };
+     handleDrawerClose = () => { 
+        console.log('trigger handleDrawerClose');
+         this.isOpen = false;
+         console.log(this.isOpen);
+         };
     
 }
 
-export const DrawerStore = new drawerStore();
+export const DrawerStore = drawerStore;

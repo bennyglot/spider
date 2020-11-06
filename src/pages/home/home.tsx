@@ -7,16 +7,15 @@ import Header from '../../components/Header/header';
  * Home component, which basically to be shown always!
  */
 
- const home = ({store}) => {
+ const home = () => {
   /** Renders home component */
   
   return (
     <div className={'continaer'}>
       <CssBaseline />
-      
       <main className={'mainContent'}>
         <div className={'toolbar'} />
-        <Header store={store}/>
+        <Header />
         <React.Suspense fallback={<CircularProgress className={'pageLoading'} />}>
           <div className={'innerWrapper'}>
             <Routes />

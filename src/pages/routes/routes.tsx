@@ -6,7 +6,7 @@ const Main = React.lazy(() => import('../../pages/main/main'));
 const routes: RouteProps[] = [
   {
     path: '/',
-    render: (props) => <Main {...props} />,
+    render: () => <Main />,
   },
 ];
 

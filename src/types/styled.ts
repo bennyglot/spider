@@ -7,3 +7,11 @@ export interface StyledComponentProps<ClassName extends string> {
   /** Material theme */
   theme?: Theme;
 }
+
+export enum SpiderClass {
+  continaer,  
+  mainContent,
+  toolbar,
+  pageLoading,
+  innerWrapping
+} 
