@@ -1,30 +1,31 @@
-import {makeAutoObservable} from 'mobx';
+import { debug } from 'console';
+import { makeAutoObservable } from 'mobx';
 
 export interface drawProps {
     isOpen: boolean,
-    handleDrawerOpen: () => void 
-    handleDrawerClose: () => void
+    handleDrawerOpen: () => void
+    handleDrawerClose: () => void,
+    toggleOpenState: () => void
 }
 
- class drawerStore implements drawProps {   
-     isOpen = false;
+class drawerStore implements drawProps {
+    isOpen: boolean = false;
 
-     constructor() {
-         makeAutoObservable(this);
-     }
+    constructor() {
+        makeAutoObservable(this);
+    }
 
-     handleDrawerOpen = () => { 
-         console.log('trigger handleDrawerOpen');
-         this.isOpen = true ;
-         console.log(this.isOpen);
-        };
+    handleDrawerOpen = () => {
+        this.isOpen = true;
+    };
 
-     handleDrawerClose = () => { 
-        console.log('trigger handleDrawerClose');
-         this.isOpen = false;
-         console.log(this.isOpen);
-         };
-    
+    handleDrawerClose = () => {
+        this.isOpen = false;
+    };
+
+    toggleOpenState = () => {
+        this.isOpen = !this.isOpen;
+    }
 }
 
 export const DrawerStore = drawerStore;
