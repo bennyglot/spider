@@ -1,4 +1,3 @@
-import { debug } from 'console';
 import { makeAutoObservable } from 'mobx';
 
 export interface drawProps {

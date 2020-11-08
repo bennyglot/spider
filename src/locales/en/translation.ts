@@ -1,9 +1,14 @@
 export const en = {
-    Common: {
-        Main: "Main"
-    },
-    Header: {
-        Login: "Login",
-        Logout: "Logout"
+    translation: {
+        Common: {
+            main: "Main"
+        },
+        Header: {
+            login: "Login",
+            logout: "Logout"
+        },
+        Main: {
+            mainText: 'main content' 
+        }
     }
 }

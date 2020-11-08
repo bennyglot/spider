@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { observer } from 'mobx-react';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,6 +13,7 @@ import { MiniDrawer } from '../../components/Drawer/drawer';
 import { appProps } from '../../stores/app';
 import { drawProps } from '../../stores/drawer';
 import { useStores } from '../../hooks/use-stores';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,10 +34,13 @@ const Header = observer(() => {
 
   const getHeaderByRule = (classes: classesType, AppStore: appProps, DrawStore: drawProps): JSX.Element => {
     const { isLoggedIn } = AppStore;
-    const {toggleOpenState} = drawerStore;
-    const Login = 'login'
-    const Logout = 'logout';
-    const Main = 'main';
+    const { toggleOpenState } = drawerStore;
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const {t, i18n} = useTranslation();
+    
+    const Login = t('Header.login')
+    const Logout = t('Header.logout');
+    const Main = t('Common.main');
 
     if (isLoggedIn) {
       return <Toolbar>
@@ -50,7 +54,7 @@ const Header = observer(() => {
       </Toolbar>
     } else {
       return <Toolbar>
-        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => {toggleOpenState()}}>
+        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => { toggleOpenState() }}>
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
@@ -69,7 +73,7 @@ const Header = observer(() => {
         </AppBar>
         <div className={'toolbarMargin'} />
       </Fragment>
-        <MiniDrawer />
+      <MiniDrawer />
     </div>
   );
 })

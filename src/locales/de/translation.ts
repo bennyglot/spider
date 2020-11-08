@@ -1,9 +1,14 @@
 export const de = {
-    Common: {
-        Main: "Main"
-    },
-    Header: {
-        Login: "Login",
-        Logout: "Logout"
+    translation: {
+        Common: {
+            main: "Main de"
+        },
+        Header: {
+            login: "Login de",
+            logout: "Logout de"
+        },
+        Main: {
+            mainText: 'main content de' 
+        } 
     }
 }
