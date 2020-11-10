@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/main/main.tsx"],"names":["Main"],"mappings":"wGAAA,2BAQMA,EANO,WACT,OAAO,mDAOIA","file":"static/js/3.b78c35fd.chunk.js","sourcesContent":["import React from 'react';\n\nconst main = () => {\n    return <>\n        main panel\n    </>\n}\n\nconst Main = main;\n\nexport default Main;"],"sourceRoot":""}
