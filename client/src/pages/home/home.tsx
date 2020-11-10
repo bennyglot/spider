@@ -1,7 +1,7 @@
 import { CircularProgress, CssBaseline } from '@material-ui/core';
 import * as React from 'react';
 import { Routes } from '../routes/routes';
-import Header from '../../components/Header/header';
+import Header from '../../components/Header';
 
 /**w
  * Home component, which basically to be shown always!
