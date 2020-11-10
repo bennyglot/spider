@@ -14,6 +14,7 @@ import { appProps } from '../../stores/app';
 import { drawProps } from '../../stores/drawer';
 import { useStores } from '../../hooks/use-stores';
 import { useTranslation } from 'react-i18next';
+import {LanguageSelect} from '../LanguageSelect/languageSelect';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,6 +61,7 @@ const Header = observer(() => {
         <Typography variant="h6" className={classes.title}>
           {Main}
         </Typography>
+        <LanguageSelect />
         <Button color="inherit">{Login}</Button>
       </Toolbar>
     }

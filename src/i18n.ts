@@ -14,7 +14,7 @@ const resources = {
 /**
  * Initializes i18next with resources and other settings
  */
-export function initI18Next(): Promise<i18next.TFunction> {
+export function initI18Next() {
   return i18next
     .use(initReactI18next)
     .init({

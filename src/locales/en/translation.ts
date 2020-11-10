@@ -9,6 +9,9 @@ export const en = {
         },
         Main: {
             mainText: 'main content' 
+        },
+        Langauges: {
+            changeLanguage: 'changeLanguage'
         }
     }
 }

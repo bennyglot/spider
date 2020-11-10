@@ -10,12 +10,12 @@ export const IconSize = {
 /** Language keys */
 export const LanguageKeys = {
     en: 'en',
-    jp: 'jp',
+    de: 'de',
   };
   
   /** Enum of languages with language key and text */
   export const Languages = {
     [LanguageKeys.en]: 'English',
-    [LanguageKeys.jp]: '日本語',
+    [LanguageKeys.de]: 'DE',
   };
   
