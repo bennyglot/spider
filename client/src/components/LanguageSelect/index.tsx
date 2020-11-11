@@ -12,10 +12,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { LanguageKeys, Languages } from '../../common/constans';
 import { useStores } from '../../hooks/use-stores';
 import { useTranslation } from 'react-i18next';
+import {appAttributes} from '../../stores/app';
 
 export const LanguageSelect = observer(() => {
     const { appStore } = useStores();
-    const { setCurrentLangauge, currentLanguage } = appStore;
+    const { setCurrentAttribute, currentLanguage } = appStore;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { t, i18n } = useTranslation();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -26,7 +27,7 @@ export const LanguageSelect = observer(() => {
 
     const handleLanguageMenuClose = (event) => {
         const {lang} = event.currentTarget;
-        setCurrentLangauge(lang);
+        setCurrentAttribute(appAttributes.CURRENT_LANAGUAGE, lang);
         i18n.changeLanguage(lang);
         setAnchorEl(null);
       };
@@ -61,7 +62,7 @@ export const LanguageSelect = observer(() => {
                             component="a"
                             data-no-link="true"
                             key={Languages[language]}
-                            selected={currentLanguage === Languages[language]}
+                            selected={currentLanguage === language}
                             onClick={handleLanguageMenuClose}
                             lang={LanguageKeys[language]}
                             hrefLang={Languages[language]}

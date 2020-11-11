@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { observable } from 'mobx';
 import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
@@ -12,10 +13,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { LanguageKeys, Languages } from '../../common/constans';
 import { useStores } from '../../hooks/use-stores';
 import { useTranslation } from 'react-i18next';
+import { appAttributes } from '../../stores/app';
 
 export const LanguageSelect = observer(() => {
     const { appStore } = useStores();
-    const { setCurrentLangauge, currentLanguage } = appStore;
+    debugger;
+    const { setCurrentAttribute, currentLanguage } = appStore;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { t, i18n } = useTranslation();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -25,11 +28,11 @@ export const LanguageSelect = observer(() => {
     };
 
     const handleLanguageMenuClose = (event) => {
-        const {lang} = event.currentTarget;
-        setCurrentLangauge(lang);
+        const { lang } = event.currentTarget;
+        setCurrentAttribute(appAttributes.CURRENT_LANAGUAGE, lang);
         i18n.changeLanguage(lang);
         setAnchorEl(null);
-      };
+    };
 
     return (
         <React.Fragment>
@@ -61,7 +64,7 @@ export const LanguageSelect = observer(() => {
                             component="a"
                             data-no-link="true"
                             key={Languages[language]}
-                            selected={currentLanguage === Languages[language]}
+                            selected={currentLanguage === language}
                             onClick={handleLanguageMenuClose}
                             lang={LanguageKeys[language]}
                             hrefLang={Languages[language]}
