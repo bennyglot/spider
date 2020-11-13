@@ -4,20 +4,17 @@ const mongoose = require('mongoose');
 const app = express();
 const port = 3000;
 
-const connectionString = process.env.MONGODB_CONNECTION_STRING;
-console.log(`connectionString; ${require('dotenv').config({debug: true})}`);
-mongoose.connect(connectionString, function (err) {
+const mongoConnectionString = process.env.MONGODB_CONNECTION_STRING;
+
+mongoose.connect(mongoConnectionString, function (err) {
   if (err) {
     throw err;
   } else {
-    console.log(`Successfully connected to ${process.env.MONGODB_CONNECTION_STRING}`);
+    console.log(`Successfully connected to ${mongoConnectionString}`);
   }
 });
 
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-})
+require('./routes')(app); 
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
