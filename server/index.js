@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
@@ -13,6 +14,9 @@ mongoose.connect(mongoConnectionString, function (err) {
     console.log(`Successfully connected to ${mongoConnectionString}`);
   }
 });
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 require('./routes')(app); 
 
