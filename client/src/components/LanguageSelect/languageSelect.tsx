@@ -17,7 +17,6 @@ import { appAttributes } from '../../stores/app';
 
 export const LanguageSelect = observer(() => {
     const { appStore } = useStores();
-    debugger;
     const { setCurrentAttribute, currentLanguage } = appStore;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { t, i18n } = useTranslation();
