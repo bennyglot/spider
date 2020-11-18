@@ -1,6 +1,6 @@
 const User = require('../../../models/User');
 
-exports.register = function (req, res) {
+exports.register = (req, res) => {
     const { email, password } = req.body;
     const user = new User({ email, password });
 
@@ -13,6 +13,28 @@ exports.register = function (req, res) {
         }
     });
 }
+
+exports.findOne = (req, res) => {
+
+}
+
+exports.findAll = (req, res) => {
+
+}
+
+exports.update = (req, res) => {
+
+}
+
+exports.delete = (req, res) => {
+
+}
+
+exports.deleteAll = (req, res) => {
+
+}
+
+
 
 exports.test = function (req, res) {
     res.send('hello world');
