@@ -1,10 +1,9 @@
 const User = require('../../../models/User');
 
 exports.register = function (req, res) {
-    const email = req.body.email;
-    const password = req.body.password;
+    const { email, password } = req.body;
     const user = new User({ email, password });
-    
+
     user.save(function (err) {
         if (err) {
             res.status(500)
@@ -17,4 +16,4 @@ exports.register = function (req, res) {
 
 exports.test = function (req, res) {
     res.send('hello world');
-  }
+}
