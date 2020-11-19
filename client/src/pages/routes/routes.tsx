@@ -2,12 +2,17 @@ import * as React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 
 const Main = React.lazy(() => import('../../pages/main/main'));
+const Login = React.lazy(() => import('../../pages/login/index'));
 
 const routes: RouteProps[] = [
   {
     path: '/',
     render: () => <Main />,
   },
+  {
+    path: '/login',
+    render: () => <Login />
+  }
 ];
 
 /**

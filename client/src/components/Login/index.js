@@ -19,15 +19,32 @@ class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange(event) {
-        this.setState({ username: event.state.username, password: event.state.password });
+        const { value, name } = event.target;
+        this.setState({
+            [name]: value
+        });
     }
     handleSubmit(event) {
         event.preventDefault();
-        if (this.state.username == 'admin@littech.in' && this.state.password == 'secret') {
-            this.props.history.push("/home");
-        } else {
-            alert('Incorrect Credntials!');
-        }
+        fetch('/api/authenticate', {
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (res.status === 200) {
+                    this.props.history.push('/');
+                } else {
+                    const error = new Error(res.error);
+                    throw error;
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Error logging in please try again');
+            });
     }
     render() {
         return (
